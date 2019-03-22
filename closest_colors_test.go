@@ -61,9 +61,9 @@ func TestFindClosestRGBColors(t *testing.T) {
 		t.Error("Expected 1, got", len(results))
 	} else {
 		result := results[0]
-		resultColor := result.color.(color)
-		if resultColor.Id != 125 || result.distance-44.97 > EPSILON {
-			t.Errorf("Expected 125 and ~44.97, got %d and %.2f", resultColor.Id, result.distance)
+		resultColor := result.Color.(color)
+		if resultColor.Id != 125 || result.Distance-44.97 > EPSILON {
+			t.Errorf("Expected 125 and ~44.97, got %d and %.2f", resultColor.Id, result.Distance)
 		}
 	}
 
@@ -77,9 +77,9 @@ func TestFindClosestRGBColors(t *testing.T) {
 		expectedIds := [5]int{58, 94, 64, 3, 100}
 		expectedDistances := [5]float64{25.40, 43.87, 45.66, 49.26, 58.01}
 		for i, result := range results {
-			resultColor := result.color.(color)
-			if resultColor.Id != expectedIds[i] || result.distance-expectedDistances[i] > EPSILON {
-				t.Errorf("result %d: expected id=%d and distance~%v, got %d and %.2f", i, expectedIds[i], expectedDistances[i], resultColor.Id, result.distance)
+			resultColor := result.Color.(color)
+			if resultColor.Id != expectedIds[i] || result.Distance-expectedDistances[i] > EPSILON {
+				t.Errorf("result %d: expected id=%d and distance~%v, got %d and %.2f", i, expectedIds[i], expectedDistances[i], resultColor.Id, result.Distance)
 			}
 		}
 	}

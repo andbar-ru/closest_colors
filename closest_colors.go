@@ -14,8 +14,8 @@ type RGBColor interface {
 }
 
 type ColorDistance struct {
-	color    RGBColor
-	distance float64
+	Color    RGBColor
+	Distance float64
 }
 
 func getDistance(color1, color2 RGBColor) float64 {
@@ -37,7 +37,7 @@ func FindClosestRGBColors(color RGBColor, number int, colors []RGBColor) ([]Colo
 		colorDistances = append(colorDistances, ColorDistance{c, getDistance(color, c)})
 	}
 	sort.Slice(colorDistances, func(i, j int) bool {
-		return colorDistances[i].distance < colorDistances[j].distance
+		return colorDistances[i].Distance < colorDistances[j].Distance
 	})
 
 	return colorDistances[:number], nil
